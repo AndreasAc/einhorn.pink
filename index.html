@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>🦄 = 💜</title>
+        <title>🦄 = ❤️</title>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"> 
         <style>
+            @property --hue {
+                syntax: '<number>';
+                initial-value: 0;
+                inherits: false;
+            }
+
+            :root {
+                --hue: 80;
+                --initial-hue: 80;
+            }
+
             html, body {
                 padding: 0%;
                 height: 100%;
                 width: 100%;
                 margin: 0%;
-                background-color: midnightblue;
+                animation-duration: 20s;
+                animation-name: rainbow;
+                animation-iteration-count: infinite;
+                background-color: hsl(var(--hue), 87%, 89%);
             }
 
             .mainDiv {
@@ -22,7 +36,6 @@
                 display: table-cell;
                 height: 100%;
                 vertical-align: middle;
-                margin: 0 auto;
                 width: 50%;
             }
 
@@ -31,17 +44,22 @@
                 margin: 0 auto;
             }
 
-            .centerImage {
-                width: 100%;
-                margin-left: 5%;
-            }
-
             .centerText {
                 width: 100%;
                 color: white;
                 text-align: center;
                 font-family: 'Open Sans', sans-serif;
-                font-size: 24px;
+                font-size: calc(10vh);
+            }
+
+            @keyframes rainbow {
+                from {
+                    --hue: calc(30 - var(--initial-hue));
+                }
+
+                to {
+                    --hue: calc(360 - var(--initial-hue));
+                }
             }
         </style>
     </head>
@@ -49,8 +67,7 @@
         <div class="mainDiv">
         <div class="centerDiv">
         <div class="lolDiv">
-            <img src="einhorn.png" class="centerImage">
-            <p class="centerText">🦄 = 💜</p>
+            <p class="centerText">🦄 = ❤️</p>
         </div>
         </div>
         </div>
